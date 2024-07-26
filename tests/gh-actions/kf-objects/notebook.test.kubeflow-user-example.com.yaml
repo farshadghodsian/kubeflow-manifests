@@ -2,7 +2,7 @@ apiVersion: kubeflow.org/v1
 kind: Notebook
 metadata:
   annotations:
-    notebooks.kubeflow.org/creator: user@example.com
+    notebooks.kubeflow.org/creator: user@ai.server
     notebooks.kubeflow.org/server-type: jupyter
   generation: 1
   labels:

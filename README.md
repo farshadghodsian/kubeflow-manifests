@@ -83,7 +83,7 @@ Option 2 targets customization and ability to pick and choose individual compone
 
 The `example` directory contains an example kustomization for the single command to be able to run.
 
-:warning: In both options, we use a default email (`user@example.com`) and password (`12341234`). For any production Kubeflow deployment, you should change the default password by following [the relevant section](#change-default-user-password).
+:warning: In both options, we use a default email (`user@ai.server`) and password (`12341234`). For any production Kubeflow deployment, you should change the default password by following [the relevant section](#change-default-user-password).
 
 ### Prerequisites
 - This is the master branch which targets Kubernetes 1.29+
@@ -232,7 +232,7 @@ It supports user sessions as well as proper token-based machine to machine atuhh
 
 #### Dex
 
-Dex is an OpenID Connect Identity (OIDC) with multiple authentication backends. In this default installation, it includes a static user with email `user@example.com`. By default, the user's password is `12341234`. For any production Kubeflow deployment, you should change the default password by following [the relevant section](#change-default-user-password).
+Dex is an OpenID Connect Identity (OIDC) with multiple authentication backends. In this default installation, it includes a static user with email `user@ai.server`. By default, the user's password is `12341234`. For any production Kubeflow deployment, you should change the default password by following [the relevant section](#change-default-user-password).
 
 Install Dex:
 
@@ -447,7 +447,7 @@ kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 After running the command, you can access the Kubeflow Central Dashboard by doing the following:
 
 1. Open your browser and visit `http://localhost:8080`. You should get the Dex login screen.
-2. Login with the default user's credentials. The default email address is `user@example.com` and the default password is `12341234`.
+2. Login with the default user's credentials. The default email address is `user@ai.server` and the default password is `12341234`.
 
 #### NodePort / LoadBalancer / Ingress
 
@@ -467,7 +467,7 @@ If you absolutely need to expose Kubeflow over HTTP, you can disable the `Secure
 
 For security reasons, we don't want to use the default password for the default Kubeflow user when installing in security-sensitive environments. Instead, you should define your own password and apply it either **before creating the cluster** or **after creating the cluster**. 
 
-Pick a password for the default user, with email `user@example.com`, and hash it using `bcrypt`:
+Pick a password for the default user, with email `user@ai.server`, and hash it using `bcrypt`:
 
     ```sh
     python3 -c 'from passlib.hash import bcrypt; import getpass; print(bcrypt.using(rounds=12, ident="2y").hash(getpass.getpass()))'
